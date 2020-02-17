@@ -24,16 +24,28 @@ class App extends Component {
       age: "",
       gender: "",
       destination: "",
-      dietaryRestrictions: []
+      dietaryRestrictions: {
+        isVegan: false,
+        isKosher: false,
+        isLactoseFree: false
+      }
     }
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(event){
-    const {name, value} = event.target
-    this.setState(
-      {[name]: value}
-    )
+    const {name, value, type, checked} = event.target
+    type === "checkbox" ?
+      this.setState(prevState => {
+        return {
+          dietaryRestrictions:{
+            ...prevState.dietaryRestrictions,
+            [name]: checked
+          }
+      }
+
+      }) :
+      this.setState({[name]: value})
   }
 
   render(){
@@ -100,7 +112,37 @@ class App extends Component {
           </select>
           <br />
 
-          {/* Create check boxes for dietary restrictions here */}
+          <label>
+            <input
+              type="checkbox"
+              name="isVegan"
+              checked={this.state.dietaryRestrictions.isVegan}
+              onChange={this.handleChange}
+            />
+            Vegan?
+          </label>
+          <br />
+
+          <label>
+            <input
+              type="checkbox"
+              name="isKosher"
+              checked={this.state.dietaryRestrictions.isKosher}
+              onChange={this.handleChange}
+            />
+            Kosher?
+          </label>
+          <br />
+
+          <label>
+            <input
+              type="checkbox"
+              name="isLactoseFree"
+              checked={this.state.dietaryRestrictions.isLactoseFree}
+              onChange={this.handleChange}
+            />
+            Lactose Free?
+          </label>
           <br />
 
           <button>Submit</button>
@@ -112,10 +154,10 @@ class App extends Component {
         <p>Your age: {this.state.age}</p>
         <p>Your gender: {this.state.gender}</p>
         <p>Your destination: {this.state.destination}</p>
-        <p>
-            Your dietary restrictions:
-            {/* Dietary restrictions here, comma separated */}
-        </p>
+        <p>Your dietary restrictions:</p>
+        <p>Vegan: {this.state.dietaryRestrictions.isVegan ? "Yes" : "No"}</p>
+        <p>Kosher: {this.state.dietaryRestrictions.isKosher ? "Yes" : "No"}</p>
+        <p>Lactose Free: {this.state.dietaryRestrictions.isLactoseFree ? "Yes" : "No"}</p>
       </main>
     )
   }
