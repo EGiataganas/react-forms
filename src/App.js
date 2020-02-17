@@ -67,7 +67,28 @@ class App extends Component {
           />
           <br />
 
-          {/* Create radio buttons for gender here */}
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value="male"
+              checked={this.state.gender === "male"}
+              onChange={this.handleChange}
+            />
+            Male
+          </label>
+          <br />
+
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value="female"
+              checked={this.state.gender === "female"}
+              onChange={this.handleChange}
+            />
+            Female
+          </label>
           <br />
 
           {/* Create select box for location here */}
@@ -83,7 +104,7 @@ class App extends Component {
         <h1>Entered information:</h1>
         <p>Your name: {this.state.firstName} {this.state.lastName}</p>
         <p>Your age: {this.state.age}</p>
-        <p>Your gender: {/* Gender here */}</p>
+        <p>Your gender: {this.state.gender}</p>
         <p>Your destination: {/* Destination here */}</p>
         <p>
             Your dietary restrictions:
