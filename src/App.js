@@ -18,16 +18,54 @@ import React, {Component} from 'react';
 class App extends Component {
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      firstName: "",
+      lastName: "",
+      age: "",
+      gender: "",
+      destination: "",
+      dietaryRestrictions: []
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(event){
+    const {name, value} = event.target
+    this.setState(
+      {[name]: value}
+    )
   }
 
   render(){
     return(
       <main>
         <form>
-          <input placeholder="First Name" /> <br />
-          <input placeholder="Last Name" /> <br />
-          <input placeholder="Age" /> <br />
+          <input
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            value={this.state.firstName}
+            onChange={this.handleChange}
+          />
+          <br />
+
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            value={this.state.lastName}
+            onChange={this.handleChange}
+          />
+          <br />
+
+          <input
+            type="text"
+            name="age"
+            placeholder="Age"
+            value={this.state.age}
+            onChange={this.handleChange}
+          />
+          <br />
 
           {/* Create radio buttons for gender here */}
           <br />
@@ -43,8 +81,8 @@ class App extends Component {
         <hr/>
 
         <h1>Entered information:</h1>
-        <p>Your name: {/* First and last name here */}</p>
-        <p>Your age: {/* Age here */}</p>
+        <p>Your name: {this.state.firstName} {this.state.lastName}</p>
+        <p>Your age: {this.state.age}</p>
         <p>Your gender: {/* Gender here */}</p>
         <p>Your destination: {/* Destination here */}</p>
         <p>
