@@ -9,7 +9,7 @@ function FormComponent(props) {
             type="text"
             name="firstName"
             placeholder="First Name"
-            value={props.data.firstName}
+            value={props.firstName}
             onChange={props.handleChange}
           />
           <br />
@@ -18,7 +18,7 @@ function FormComponent(props) {
             type="text"
             name="lastName"
             placeholder="Last Name"
-            value={props.data.lastName}
+            value={props.lastName}
             onChange={props.handleChange}
           />
           <br />
@@ -27,7 +27,7 @@ function FormComponent(props) {
             type="text"
             name="age"
             placeholder="Age"
-            value={props.data.age}
+            value={props.age}
             onChange={props.handleChange}
           />
           <br />
@@ -37,7 +37,7 @@ function FormComponent(props) {
               type="radio"
               name="gender"
               value="male"
-              checked={props.data.gender === "male"}
+              checked={props.gender === "male"}
               onChange={props.handleChange}
             />
             Male
@@ -49,14 +49,14 @@ function FormComponent(props) {
               type="radio"
               name="gender"
               value="female"
-              checked={props.data.gender === "female"}
+              checked={props.gender === "female"}
               onChange={props.handleChange}
             />
             Female
           </label>
           <br />
 
-          <select value={props.data.destination} name="destination" onChange={props.handleChange}>
+          <select value={props.destination} name="destination" onChange={props.handleChange}>
             <option value="">-- Please choose a destination --</option>
             <option value="germany">Germany</option>
             <option value="norway">Norway</option>
@@ -69,7 +69,7 @@ function FormComponent(props) {
             <input
               type="checkbox"
               name="isVegan"
-              checked={props.data.dietaryRestrictions.isVegan}
+              checked={props.dietaryRestrictions.isVegan}
               onChange={props.handleChange}
             />
             Vegan?
@@ -80,7 +80,7 @@ function FormComponent(props) {
             <input
               type="checkbox"
               name="isKosher"
-              checked={props.data.dietaryRestrictions.isKosher}
+              checked={props.dietaryRestrictions.isKosher}
               onChange={props.handleChange}
             />
             Kosher?
@@ -91,7 +91,7 @@ function FormComponent(props) {
             <input
               type="checkbox"
               name="isLactoseFree"
-              checked={props.data.dietaryRestrictions.isLactoseFree}
+              checked={props.dietaryRestrictions.isLactoseFree}
               onChange={props.handleChange}
             />
             Lactose Free?
@@ -103,14 +103,14 @@ function FormComponent(props) {
         <hr/>
 
         <h1>Entered information:</h1>
-        <p>Your name: {props.data.firstName} {props.data.lastName}</p>
-        <p>Your age: {props.data.age}</p>
-        <p>Your gender: {props.data.gender}</p>
-        <p>Your destination: {props.data.destination}</p>
+        <p>Your name: {props.firstName} {props.lastName}</p>
+        <p>Your age: {props.age}</p>
+        <p>Your gender: {props.gender}</p>
+        <p>Your destination: {props.destination}</p>
         <p>Your dietary restrictions:</p>
-        <p>Vegan: {props.data.dietaryRestrictions.isVegan ? "Yes" : "No"}</p>
-        <p>Kosher: {props.data.dietaryRestrictions.isKosher ? "Yes" : "No"}</p>
-        <p>Lactose Free: {props.data.dietaryRestrictions.isLactoseFree ? "Yes" : "No"}</p>
+        <p>Vegan: {props.dietaryRestrictions.isVegan ? "Yes" : "No"}</p>
+        <p>Kosher: {props.dietaryRestrictions.isKosher ? "Yes" : "No"}</p>
+        <p>Lactose Free: {props.dietaryRestrictions.isLactoseFree ? "Yes" : "No"}</p>
       </main>
     </div>
   )

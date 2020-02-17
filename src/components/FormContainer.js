@@ -39,7 +39,7 @@ class Form extends Component {
       <div>
         <FormComponent
           handleChange={this.handleChange}
-          data={this.state}
+          {...this.state}
         />
       </div>
     )
