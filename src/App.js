@@ -91,7 +91,13 @@ class App extends Component {
           </label>
           <br />
 
-          {/* Create select box for location here */}
+          <select value={this.state.destination} name="destination" onChange={this.handleChange}>
+            <option value="">-- Please choose a destination --</option>
+            <option value="germany">Germany</option>
+            <option value="norway">Norway</option>
+            <option value="north pole">North Pole</option>
+            <option value="south pole">South Pole</option>
+          </select>
           <br />
 
           {/* Create check boxes for dietary restrictions here */}
@@ -105,7 +111,7 @@ class App extends Component {
         <p>Your name: {this.state.firstName} {this.state.lastName}</p>
         <p>Your age: {this.state.age}</p>
         <p>Your gender: {this.state.gender}</p>
-        <p>Your destination: {/* Destination here */}</p>
+        <p>Your destination: {this.state.destination}</p>
         <p>
             Your dietary restrictions:
             {/* Dietary restrictions here, comma separated */}
